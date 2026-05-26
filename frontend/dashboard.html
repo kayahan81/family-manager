@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семейный менеджер - Панель управления</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>Семейный менеджер</h1>
+            <div class="nav-links">
+                <a href="dashboard.html" class="active">Главная</a>
+                <a href="files.html">Файлы</a>
+                <a href="finance.html">Финансы</a>
+                <a href="chat.html">Чат</a>
+                <a href="smart-home.html">Умный дом</a>
+                <a href="calendar.html">Календарь</a>
+                <a href="events.html">События</a>
+            </div>
+            <div class="user-info">
+                <span id="username"></span>
+                <span id="userRole" class="role-badge"></span>
+                <button class="logout-btn" onclick="logout()">Выйти</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Добро пожаловать в Семейный менеджер!</h2>
+            <p>Управляйте финансами, файлами, общайтесь и планируйте вместе с семьей.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Быстрый доступ</h3>
+                <p>📁 <a href="files.html">Файлы</a></p>
+                <p>💰 <a href="finance.html">Финансы</a></p>
+                <p>💬 <a href="chat.html">Чат</a></p>
+            </div>
+            <div class="stat-card">
+                <h3>Семья</h3>
+                <p id="familyInfo">Загрузка...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

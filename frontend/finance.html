@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семейный менеджер - Финансы</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>Семейный менеджер</h1>
+            <div class="nav-links">
+                <a href="dashboard.html">Главная</a>
+                <a href="files.html">Файлы</a>
+                <a href="finance.html" class="active">Финансы</a>
+                <a href="chat.html">Чат</a>
+                <a href="smart-home.html">Умный дом</a>
+                <a href="calendar.html">Календарь</a>
+                <a href="events.html">События</a>
+            </div>
+            <div class="user-info">
+                <span id="username"></span>
+                <span id="userRole" class="role-badge"></span>
+                <button class="logout-btn" onclick="logout()">Выйти</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>💰 Доходы</h3>
+                <div class="stat-value stat-positive" id="totalIncome">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>💸 Расходы</h3>
+                <div class="stat-value stat-negative" id="totalExpense">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>💳 Баланс</h3>
+                <div class="stat-value" id="balance">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>📊 Сравнение</h3>
+                <div class="stat-value" id="comparison">-</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Добавить транзакцию</h3>
+            <form id="transactionForm" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                <input type="number" id="amount" placeholder="Сумма" required>
+                <select id="type">
+                    <option value="income">💰 Доход</option>
+                    <option value="expense">💸 Расход</option>
+                </select>
+                <select id="category">
+                    <!-- Категории доходов -->
+                    <optgroup label="Доходы">
+                        <option value="salary">💰 Зарплата</option>
+                        <option value="bonus">🎁 Премия</option>
+                        <option value="freelance">💻 Фриланс</option>
+                        <option value="investment">📈 Инвестиции</option>
+                        <option value="gift">🎁 Подарок</option>
+                        <option value="other_income">📦 Другой доход</option>
+                    </optgroup>
+                    <!-- Категории расходов -->
+                    <optgroup label="Расходы">
+                        <option value="food">🍔 Еда</option>
+                        <option value="transport">🚗 Транспорт</option>
+                        <option value="bills">📄 Счета</option>
+                        <option value="entertainment">🎮 Развлечения</option>
+                        <option value="shopping">🛍 Покупки</option>
+                        <option value="health">🏥 Здоровье</option>
+                        <option value="education">📚 Образование</option>
+                        <option value="other">📦 Другое</option>
+                    </optgroup>
+                </select>
+                <input type="text" id="description" placeholder="Описание">
+                <button type="button" onclick="addTransaction()" class="btn">Добавить</button>
+            </form>
+        </div>
+        <div class="card">
+            <h3>Графики трат</h3>
+            <canvas id="expenseChart" style="max-height: 400px;"></canvas>
+        </div>
+
+        <div class="card">
+            <h3>История транзакций</h3>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr><th>Дата</th><th>Тип</th><th>Категория</th><th>Описание</th><th>Сумма</th></tr>
+                    </thead>
+                    <tbody id="transactionsTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

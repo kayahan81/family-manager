@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семейный менеджер - Чат</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>Семейный менеджер</h1>
+            <div class="nav-links">
+                <a href="dashboard.html">Главная</a>
+                <a href="files.html">Файлы</a>
+                <a href="finance.html">Финансы</a>
+                <a href="chat.html" class="active">Чат</a>
+                <a href="smart-home.html">Умный дом</a>
+                <a href="calendar.html">Календарь</a>
+                <a href="events.html">События</a>
+            </div>
+            <div class="user-info">
+                <span id="username"></span>
+                <span id="userRole" class="role-badge"></span>
+                <button class="logout-btn" onclick="logout()">Выйти</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card" style="height: 70vh;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h2>💬 Семейный чат</h2>
+                <div id="connectionStatus" style="font-size: 12px; padding: 5px 10px; border-radius: 20px; background: #e0e0e0;">
+                    Подключение...
+                </div>
+            </div>
+            <div class="chat-container">
+                <div id="messages" class="messages"></div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Введите сообщение..." onkeypress="if(event.key==='Enter') sendMessage()">
+                    <button onclick="sendMessage()" class="btn" style="width: auto;">📤 Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семейный менеджер - Файлы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>Семейный менеджер</h1>
+            <div class="nav-links">
+                <a href="dashboard.html">Главная</a>
+                <a href="files.html" class="active">Файлы</a>
+                <a href="finance.html">Финансы</a>
+                <a href="chat.html">Чат</a>
+                <a href="smart-home.html">Умный дом</a>
+                <a href="calendar.html">Календарь</a>
+                <a href="events.html">События</a>
+            </div>
+            <div class="user-info">
+                <span id="username"></span>
+                <span id="userRole" class="role-badge"></span>
+                <button class="logout-btn" onclick="logout()">Выйти</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Семейное хранилище файлов</h2>
+            <div class="file-upload">
+                <h3>Загрузить файл</h3>
+                <input type="file" id="fileInput">
+                <select id="accessType" style="margin: 10px; padding: 5px;">
+                    <option value="private">Только для меня</option>
+                    <option value="family">Вся семья</option>
+                    <option value="public">Публичный (по ссылке)</option>
+                </select>
+                <button onclick="uploadFile()" class="btn">Загрузить</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Файлы</h3>
+            <div id="fileList" class="file-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

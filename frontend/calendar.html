@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Семейный менеджер - Календарь</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные стили для мобильной прокрутки */
+        .calendar-wrapper {
+            position: relative;
+        }
+        
+        /* Индикатор прокрутки */
+        .scroll-indicator {
+            display: none;
+            text-align: center;
+            padding: 8px;
+            color: #667eea;
+            font-size: 12px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .scroll-indicator {
+                display: block;
+            }
+        }
+        
+        /* Стили для тач-скролла */
+        .calendar-wrapper::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .calendar-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .calendar-wrapper::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+        
+        .calendar-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #5a67d8;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>Семейный менеджер</h1>
+            <div class="nav-links">
+                <a href="dashboard.html">Главная</a>
+                <a href="files.html">Файлы</a>
+                <a href="finance.html">Финансы</a>
+                <a href="chat.html">Чат</a>
+                <a href="smart-home.html">Умный дом</a>
+                <a href="calendar.html" class="active">Календарь</a>
+                <a href="events.html">События</a>
+            </div>
+            <div class="user-info">
+                <span id="username"></span>
+                <span id="userRole" class="role-badge"></span>
+                <button class="logout-btn" onclick="logout()">Выйти</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="calendar-header">
+                <button onclick="prevMonth()" class="btn">◀ Предыдущий</button>
+                <h2 id="currentMonth"></h2>
+                <button onclick="nextMonth()" class="btn">Следующий ▶</button>
+            </div>
+            
+            <!-- Индикатор прокрутки для мобильных -->
+            <div class="scroll-indicator">
+                👆 Свайпайте влево/вправо для просмотра 👆
+            </div>
+            
+            <!-- Обертка для горизонтальной прокрутки -->
+            <div class="calendar-wrapper">
+                <div class="calendar-container">
+                    <div id="calendarGrid" class="calendar-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h3>📅 Предстоящие события</h3>
+                <button onclick="showAllUpcomingEvents()" class="btn" style="width: auto; padding: 5px 15px; background: #48bb78;">
+                    Все события →
+                </button>
+            </div>
+            <div id="upcomingEvents" style="max-height: 300px; overflow-y: auto;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
